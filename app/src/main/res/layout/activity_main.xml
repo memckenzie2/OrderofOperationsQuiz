@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/title"
+            android:text="@string/order_of_operations_quiz" />
+
+        <TextView
+            android:id="@+id/question1"
+            style="@style/question_view"
+            android:text="@string/question_1" />
+
+        <CheckBox
+            android:id="@+id/question_1_check1"
+            style="@style/answer_view"
+            android:text="@string/question_1_check1" />
+
+        <CheckBox
+            android:id="@+id/question_1_check2"
+            style="@style/answer_view"
+            android:text="@string/question_1_check2" />
+
+        <CheckBox
+            android:id="@+id/question_1_check3"
+            style="@style/answer_view"
+            android:text="@string/question_1_Check3" />
+
+        <CheckBox
+            android:id="@+id/question_1_check4"
+            style="@style/answer_view"
+            android:text="@string/question_1_check4" />
+
+        <TextView
+            android:id="@+id/question2"
+            style="@style/question_view"
+            android:layout_marginBottom="0dp"
+            android:text="@string/question_2" />
+
+        <EditText
+            android:id="@+id/question2_edit"
+            style="@style/edit_text_view" />
+
+        <TextView
+            android:id="@+id/question3"
+            style="@style/question_view"
+            android:text="@string/question_3" />
+
+        <RadioGroup
+            android:id="@+id/question_3_radio_group"
+            style="@style/answer_view">
+
+            <RadioButton
+                android:id="@+id/question_3_radio1"
+                style="@style/radio_view"
+                android:text="@string/question_3_radio1" />
+
+            <RadioButton
+                android:id="@+id/question_3_radio2"
+                style="@style/radio_view"
+                android:text="@string/question_3_radio2" />
+
+            <RadioButton
+                android:id="@+id/question_3_radio3"
+                style="@style/radio_view"
+                android:text="@string/question_3_radio3" />
+
+            <RadioButton
+                android:id="@+id/question_3_radio4"
+                style="@style/radio_view"
+                android:text="@string/question_3_radio4" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/question4"
+            style="@style/question_view"
+            android:text="@string/question_4" />
+
+        <EditText
+            android:id="@+id/question_4_edit"
+            style="@style/edit_text_view"
+            android:inputType="number|numberSigned" />
+
+        <TextView
+            android:id="@+id/question_5"
+            style="@style/question_view"
+            android:text="@string/question_5" />
+
+        <EditText
+            android:id="@+id/question_5_edit"
+            style="@style/edit_text_view"
+            android:inputType="number|numberSigned" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/button"
+                android:layout_weight="0"
+                android:onClick="onSubmit"
+                android:text="@string/submit" />
+
+            <Button
+                style="@style/button"
+                android:layout_weight="0"
+                android:onClick="reset"
+                android:text="@string/reset" />
+
+        </LinearLayout>
+
+        <Button
+            style="@style/button"
+            android:layout_gravity="center"
+            android:onClick="emailResults"
+            android:text="@string/email_results" />
+
+    </LinearLayout>
+</ScrollView>
