@@ -26,12 +26,14 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup q3Group;
     EditText editTextQ4;
     EditText editTextQ5;
+
+    //Variables for displaying  and markingrandomly generated questions
     private String solutionQ2;
     private int solutionQ4;
     private String questionText4;
     private int solutionQ5;
     private String questionText5;
-    //String to store missed questions for later display to player.
+    //Variables to store and track missed questions for later display to player.
     private String missedQuestions;
 
     @Override
@@ -89,30 +91,32 @@ public class MainActivity extends AppCompatActivity {
         else {
 
             //Question 1, Check boxes 2 and 3 should be the only ones selected
-            boolean q1Result = markQ1(check1Q1.isChecked(), check2Q1.isChecked(), check3Q1.isChecked(), check4Q1.isChecked());
-            int correctCount = q1Result ? 1 : 0;
-            correct += correctCount;
+            if(markQ1(check1Q1.isChecked(), check2Q1.isChecked(), check3Q1.isChecked(), check4Q1.isChecked())){
+                correct += 1;
+            };
 
-            //Question 2
-            boolean q2Result = markQ2(responseQ2);
-            correctCount = q2Result ? 1 : 0;
-            correct += correctCount;
 
-            //Question 3
+            //Question 2 - returns true if entered string matches solutionQ2
+            if(markQ2(responseQ2)){
+                correct +=1;
+            }
+
+
+            //Question 3 - returns true if the 4th radio button is selected
             RadioButton radioCorrectQ3 = findViewById(R.id.question_3_radio4);
-            boolean q3Result = markQ3(radioCorrectQ3.isChecked());
-            correctCount = q3Result ? 1 : 0;
-            correct += correctCount;
+            if(markQ3(radioCorrectQ3.isChecked())){
+                correct += 1;
+            }
 
-            //Question 4
-            boolean q4Result = markQ4(responseQ4);
-            correctCount = q4Result ? 1 : 0;
-            correct += correctCount;
+            //Question 4 - returns true if entered string matches solutionQ4
+            if(markQ4(responseQ4)){
+                correct +=1;
+            }
 
-            //Question 5
-            boolean q5Result = markQ5(responseQ5);
-            correctCount = q5Result ? 1 : 0;
-            correct += correctCount;
+            //Question 5 - returns true if entered string matches solutionQ5
+            if(markQ5(responseQ5)){
+                correct += 1;
+            }
 
             //Calculate score and display as toast message
             finalScore(correct);
@@ -142,8 +146,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-This method is called when the reset button is clicked.
- */
+    This method is called when the e-mail results button is clicked.
+     */
     public void emailResults(View view) {
 
 
