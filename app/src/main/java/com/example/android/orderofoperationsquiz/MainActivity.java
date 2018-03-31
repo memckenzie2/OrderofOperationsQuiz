@@ -26,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup q3Group;
     EditText editTextQ4;
     EditText editTextQ5;
+    TextView q1;
+    TextView q2;
+    TextView q3;
+    TextView q4;
+    TextView q5;
 
     //Variables for displaying  and markingrandomly generated questions
     private String solutionQ2;
@@ -57,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
         q3Group = findViewById(R.id.question_3_radio_group);
         editTextQ4 = findViewById(R.id.question_4_edit);
         editTextQ5 = findViewById(R.id.question_5_edit);
+        TextView q1 = findViewById(R.id.question1);
+        TextView q2 = findViewById(R.id.question2);
+        TextView q3 = findViewById(R.id.question3);
+        TextView q4 = findViewById(R.id.question4);
+        TextView q5 = findViewById(R.id.question_5);
     }
 
     /*
@@ -143,6 +153,13 @@ public class MainActivity extends AppCompatActivity {
         q3Group.clearCheck();
         editTextQ4.setText("");
         editTextQ5.setText("");
+
+        //Reset all to default color
+        q1.setTextColor(Color.parseColor(R.color.colorPrimaryDark));
+        q2.setTextColor(Color.parseColor(R.color.colorPrimaryDark));
+        q3.setTextColor(Color.parseColor(R.color.colorPrimaryDark));
+        q4.setTextColor(Color.parseColor(R.color.colorPrimaryDark));
+        q5.setTextColor(Color.parseColor(R.color.colorPrimaryDark));
     }
 
     /*
@@ -279,7 +296,6 @@ public class MainActivity extends AppCompatActivity {
         boolean emptyAnswer = false;
 
         //Check if at least one checkbox is selected,
-        TextView q1 = findViewById(R.id.question1);
         if (!checkBoxSelected) {
 
             q1.setTextColor(Color.RED);
@@ -289,7 +305,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Check if edittext for question 3 has input
-        TextView q2 = findViewById(R.id.question2);
         if (TextUtils.isEmpty(editText2)) {
             q2.setTextColor(Color.RED);
             emptyAnswer = true;
@@ -298,7 +313,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //check if radio button is selected
-        TextView q3 = findViewById(R.id.question3);
         if (radioQ3 == -1) {
             q3.setTextColor(Color.RED);
             emptyAnswer = true;
@@ -307,7 +321,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Check if edittext for question 4 has input
-        TextView q4 = findViewById(R.id.question4);
         if (TextUtils.isEmpty(editText4)) {
             q4.setTextColor(Color.RED);
             emptyAnswer = true;
@@ -316,7 +329,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Check if edittext for question 5 has input
-        TextView q5 = findViewById(R.id.question_5);
         if (TextUtils.isEmpty(editText5)) {
             q5.setTextColor(Color.RED);
             emptyAnswer = true;
