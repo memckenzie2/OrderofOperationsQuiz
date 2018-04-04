@@ -2,18 +2,18 @@ package com.example.android.orderofoperationsquiz;
 
 import android.support.v7.app.AppCompatActivity;
 
-        import android.graphics.Color;
-        import android.os.Bundle;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.text.TextUtils;
-        import android.view.View;
-        import android.widget.CheckBox;
-        import android.widget.EditText;
-        import android.widget.RadioButton;
-        import android.widget.RadioGroup;
-        import android.widget.TextView;
-        import android.widget.Toast;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
-        import java.util.Random;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup q3Group;
     EditText editTextQ4;
     EditText editTextQ5;
+    TextView q1;
+    TextView q2;
+    TextView q3;
+    TextView q4;
+    TextView q5;
 
     //Variables for displaying  and markingrandomly generated questions
     private String solutionQ2;
@@ -41,12 +46,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Generates solutions to the random problems
-        solutionQ4 = orderOpProb4();
-        solutionQ5 = orderOpProb5();
-        solutionQ2 = randomQ2();
-        missedQuestions = "You missed the following questions:\n";
-
         //Initializes activity calls
         //Response to Question 1
         check1Q1 = findViewById(R.id.question_1_check1);
@@ -57,6 +56,17 @@ public class MainActivity extends AppCompatActivity {
         q3Group = findViewById(R.id.question_3_radio_group);
         editTextQ4 = findViewById(R.id.question_4_edit);
         editTextQ5 = findViewById(R.id.question_5_edit);
+        q1 = findViewById(R.id.question1);
+        q2 = findViewById(R.id.question2);
+        q3 = findViewById(R.id.question3);
+        q4 = findViewById(R.id.question4);
+        q5 = findViewById(R.id.question_5);
+
+        //Generates solutions to the random problems
+        solutionQ4 = orderOpProb4();
+        solutionQ5 = orderOpProb5();
+        solutionQ2 = randomQ2();
+        missedQuestions = "You missed the following questions:\n";
     }
 
     /*
@@ -143,6 +153,13 @@ public class MainActivity extends AppCompatActivity {
         q3Group.clearCheck();
         editTextQ4.setText("");
         editTextQ5.setText("");
+
+        //Reset all to default color
+        q1.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        q2.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        q3.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        q4.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        q5.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
     }
 
     /*
@@ -157,24 +174,22 @@ public class MainActivity extends AppCompatActivity {
      * @param questionChar is the letter from PEMDAS that is being used for the current version of the question.
      */
     private void displayProb2(String questionChar) {
-        TextView quantityTextView = findViewById(R.id.question2);
-        quantityTextView.setText("2. What does the " + questionChar + " in the acronym PEMDAS stand for?");
+
+        q2.setText("2. What does the " + questionChar + " in the acronym PEMDAS stand for?");
     }
 
     /* Updates question 4 Textview with problem statement
-    * @param problem is the problem statement.
-    */
+     * @param problem is the problem statement.
+     */
     private void displayProb4(String problem) {
-        TextView quantityTextView = findViewById(R.id.question4);
-        quantityTextView.setText(problem);
+       q4.setText(problem);
     }
 
     /* Updates question 5 Textview with problem statement
      * @param problem is the problem statement..
      */
     private void displayProb5(String problem) {
-        TextView quantityTextView = findViewById(R.id.question_5);
-        quantityTextView.setText(problem);
+        q5.setText(problem);
     }
 
     /*
@@ -244,7 +259,6 @@ public class MainActivity extends AppCompatActivity {
     Generates random numbers to populate question 5's expression: z + a ÷ (d - b * c)
     To generate a problem with a whole number solution the random numbers must be generated such that...
     a must be divisible by the correct solution to (d - b * c)
-
     This will be done by generating b, c, and d first and generating a to be a multiple of the result of (d - b * c).
      */
     public int orderOpProb5() {
@@ -279,7 +293,6 @@ public class MainActivity extends AppCompatActivity {
         boolean emptyAnswer = false;
 
         //Check if at least one checkbox is selected,
-        TextView q1 = findViewById(R.id.question1);
         if (!checkBoxSelected) {
 
             q1.setTextColor(Color.RED);
@@ -289,7 +302,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Check if edittext for question 3 has input
-        TextView q2 = findViewById(R.id.question2);
         if (TextUtils.isEmpty(editText2)) {
             q2.setTextColor(Color.RED);
             emptyAnswer = true;
@@ -298,7 +310,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //check if radio button is selected
-        TextView q3 = findViewById(R.id.question3);
         if (radioQ3 == -1) {
             q3.setTextColor(Color.RED);
             emptyAnswer = true;
@@ -307,7 +318,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Check if edittext for question 4 has input
-        TextView q4 = findViewById(R.id.question4);
         if (TextUtils.isEmpty(editText4)) {
             q4.setTextColor(Color.RED);
             emptyAnswer = true;
@@ -316,7 +326,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Check if edittext for question 5 has input
-        TextView q5 = findViewById(R.id.question_5);
         if (TextUtils.isEmpty(editText5)) {
             q5.setTextColor(Color.RED);
             emptyAnswer = true;
@@ -436,5 +445,3 @@ public class MainActivity extends AppCompatActivity {
                 Toast.LENGTH_LONG).show();
     }
 }
-
-

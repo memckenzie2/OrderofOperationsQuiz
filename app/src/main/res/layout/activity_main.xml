@@ -40,6 +40,8 @@
             style="@style/answer_view"
             android:text="@string/question_1_check4" />
 
+        <View style="@style/horizontal_line" />
+
         <TextView
             android:id="@+id/question2"
             style="@style/question_view"
@@ -49,6 +51,8 @@
         <EditText
             android:id="@+id/question2_edit"
             style="@style/edit_text_view" />
+
+        <View style="@style/horizontal_line" />
 
         <TextView
             android:id="@+id/question3"
@@ -80,6 +84,8 @@
                 android:text="@string/question_3_radio4" />
         </RadioGroup>
 
+        <View style="@style/horizontal_line" />
+
         <TextView
             android:id="@+id/question4"
             style="@style/question_view"
@@ -89,6 +95,8 @@
             android:id="@+id/question_4_edit"
             style="@style/edit_text_view"
             android:inputType="number|numberSigned" />
+
+        <View style="@style/horizontal_line" />
 
         <TextView
             android:id="@+id/question_5"

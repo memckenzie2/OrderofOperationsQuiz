@@ -14,7 +14,7 @@
     <string name="question_3_radio4">7 - 16</string>
     <string name="question_4">Question 4</string>
     <string name="question_5">Question 5</string>
-    <string name="submit">Submit</string>
-    <string name="reset">Reset </string>
-    <string name="email_results">Email Results</string>
+    <string name="submit">Grade Quiz</string>
+    <string name="reset">Retake Quiz</string>
+    <string name="email_results">Email Results to Teacher</string>
 </resources>
