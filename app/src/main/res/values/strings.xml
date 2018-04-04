@@ -16,5 +16,5 @@
     <string name="question_5">Question 5</string>
     <string name="submit">Grade Quiz</string>
     <string name="reset">Retake Quiz</string>
-    <string name="email_results">Email Results to Teacher</string>
+    <string name="email_results">Email Results</string>
 </resources>
