@@ -19,4 +19,5 @@
     <string name="email_results">Email Results</string>
     <string name="email_subject">Order of Operations Quiz Results for <xliff:g example="George" id="name">%s</xliff:g></string>
     <string name="name">Name:</string>
+    <string name="input_answer">Input Answer</string>
 </resources>

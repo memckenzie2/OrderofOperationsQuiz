@@ -57,6 +57,7 @@
         <item name="android:layout_width">@dimen/edit_text_width</item>
         <item name="android:background">@color/accentTransparent</item>
         <item name="android:fontFamily">@font/spacemono_regular</item>
+        <item name="android:hint">@string/input_answer</item>
     </style>
 
     <style name="answer_view">
