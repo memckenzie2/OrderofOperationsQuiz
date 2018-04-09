@@ -1,11 +1,13 @@
 package com.example.android.orderofoperationsquiz;
 
-import android.support.v7.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     TextView q3;
     TextView q4;
     TextView q5;
+    EditText editTextName;
+    int attemptCounter;
 
     //Variables for displaying  and markingrandomly generated questions
     private String solutionQ2;
@@ -40,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
     private String questionText5;
     //Variables to store and track missed questions for later display to player.
     private String missedQuestions;
+    private String message;
+    private String scoreMessage;
+    private Button emailButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Initializes activity calls
-        //Response to Question 1
+        editTextName = findViewById(R.id.name_edit);
         check1Q1 = findViewById(R.id.question_1_check1);
         check2Q1 = findViewById(R.id.question_1_check2);
         check3Q1 = findViewById(R.id.question_1_check3);
@@ -66,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
         solutionQ4 = orderOpProb4();
         solutionQ5 = orderOpProb5();
         solutionQ2 = randomQ2();
-        missedQuestions = "You missed the following questions:\n";
+        attemptCounter = 0;
+        emailButton = findViewById(R.id.email);
+        emailButton.setVisibility(View.INVISIBLE);
     }
 
     /*
@@ -74,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onSubmit(View view) {
         int correct = 0;
+        missedQuestions = " missed the following questions:\n";
 
         //Pulls state of all response views
         //Reduces state of checkboxes to single true/false - true if ANY checkbox checked and false if none selected.
@@ -103,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             //Question 1, Check boxes 2 and 3 should be the only ones selected
             if(markQ1(check1Q1.isChecked(), check2Q1.isChecked(), check3Q1.isChecked(), check4Q1.isChecked())){
                 correct += 1;
-            };
+            }
 
 
             //Question 2 - returns true if entered string matches solutionQ2
@@ -128,8 +138,12 @@ public class MainActivity extends AppCompatActivity {
                 correct += 1;
             }
 
+            if (correct == 5) {
+                missedQuestions += "Amazing! No questions missed!";
+            }
             //Calculate score and display as toast message
             finalScore(correct);
+            emailButton.setVisibility(View.VISIBLE);
         }
 
     }
@@ -143,7 +157,9 @@ public class MainActivity extends AppCompatActivity {
         solutionQ4 = orderOpProb4();
         solutionQ5 = orderOpProb5();
         solutionQ2 = randomQ2();
-        missedQuestions = "You missed the following questions:\n";
+        missedQuestions = " missed the following questions:\n";
+        attemptCounter = 0;
+
         //resets all questions to default state
         check1Q1.setChecked(false);
         check2Q1.setChecked(false);
@@ -153,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
         q3Group.clearCheck();
         editTextQ4.setText("");
         editTextQ5.setText("");
+        editTextName.setText("");
 
         //Reset all to default color
         q1.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -160,13 +177,30 @@ public class MainActivity extends AppCompatActivity {
         q3.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         q4.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         q5.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+
+        emailButton.setVisibility(View.INVISIBLE);
     }
 
     /*
     This method is called when the e-mail results button is clicked.
      */
     public void emailResults(View view) {
+        //Retrieves student's name
+        String name = editTextName.getText().toString();
+        //Build Message
+        message = scoreMessage + "\n\n" + name + missedQuestions + "\n\nKnow the answers? Download the Order of Operations Quiz App and beat their score!";
 
+        // Use an intent to launch an email app.
+        // Send the score and missed questions in the email body.
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT,
+                getString(R.string.email_subject, name));
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
 
     }
 
@@ -349,7 +383,7 @@ public class MainActivity extends AppCompatActivity {
         if (!check1 && check2 && check3 && !check4) {
             return true;
         } else {
-            missedQuestions = missedQuestions + "Question 1\n" + R.string.question_1 + "\n";
+            missedQuestions = missedQuestions + "\nQuestion 1\n" + q1.getText() + "\n";
             return false;
         }
     }
@@ -364,7 +398,7 @@ public class MainActivity extends AppCompatActivity {
         if (responseQ2.toLowerCase().equals(solutionQ2)) {
             return true;
         } else {
-            missedQuestions = missedQuestions + "Question 2\n" + R.string.question_2 + "\n";
+            missedQuestions = missedQuestions + "\nQuestion 2\n" + q2.getText() + "\n";
             return false;
         }
     }
@@ -378,7 +412,7 @@ public class MainActivity extends AppCompatActivity {
         if (correctQ3) {
             return true;
         } else {
-            missedQuestions = missedQuestions + "Question 3\n" + R.string.question_3 + "\n";
+            missedQuestions = missedQuestions + "\nQuestion 3\n" + q3.getText() + "\n";
             return false;
         }
     }
@@ -401,7 +435,7 @@ public class MainActivity extends AppCompatActivity {
         if (responseQ4Int == solutionQ4) {
             return true;
         } else {
-            missedQuestions = missedQuestions + "Question 4\n" + R.string.question_4 + "\n";
+            missedQuestions = missedQuestions + "\nQuestion 4\n" + q4.getText() + "\n";
             return false;
         }
     }
@@ -424,7 +458,7 @@ public class MainActivity extends AppCompatActivity {
         if (responseQ5Int == solutionQ5) {
             return true;
         } else {
-            missedQuestions = missedQuestions + "Question 5\n" + R.string.question_5 + "\n";
+            missedQuestions = missedQuestions + "\nQuestion 5\n" + q5.getText();
             return false;
         }
     }
@@ -436,9 +470,9 @@ public class MainActivity extends AppCompatActivity {
      */
     private void finalScore(int correct) {
         double percentCorrect = (double) correct / 5 * 100;
-        String scoreMessage;
-
-        scoreMessage = "You earned " + Double.toString(percentCorrect) + "%. You got " + Integer.toString(correct) + "/5 correct!";
+        //Retrieves student's name
+        String name = editTextName.getText().toString();
+        scoreMessage = name + " earned " + Double.toString(percentCorrect) + "% which is " + Integer.toString(correct) + "/5 correct!";
 
         Toast toast = new Toast(getApplicationContext());
         Toast.makeText(getApplicationContext(), scoreMessage,

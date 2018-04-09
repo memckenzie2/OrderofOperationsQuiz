@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Order of Operations Quiz</string>
     <string name="order_of_operations_quiz">Do You Know Order of Operations?</string>
     <string name="question_1">1. Select all true statements about order of operations:</string>
@@ -17,4 +17,6 @@
     <string name="submit">Grade Quiz</string>
     <string name="reset">Retake Quiz</string>
     <string name="email_results">Email Results</string>
+    <string name="email_subject">Order of Operations Quiz Results for <xliff:g example="George" id="name">%s</xliff:g></string>
+    <string name="name">Name:</string>
 </resources>
