@@ -4,7 +4,7 @@
     <string name="question_1">1. Select all true statements about order of operations:</string>
     <string name="question_1_check1">Multiplication has order precedence over division</string>
     <string name="question_1_check2">Exponents (i.e. powers and square roots) has order precedence over multiplication</string>
-    <string name="question_1_Check3">Addition and Subtraction are solved as they are encountered from left to right</string>
+    <string name="question_1_check3">Addition and Subtraction are solved as they are encountered from left to right</string>
     <string name="question_1_check4">If there are multiple grouping symbols, solve the outermost first</string>
     <string name="question_2">Question 2</string>
     <string name="question_3">3. Following order of operation rules, which step comes first: \n      48÷3 + 2[12×3 - |7 - 16|]</string>
@@ -20,4 +20,7 @@
     <string name="email_subject">Order of Operations Quiz Results for <xliff:g example="George" id="name">%s</xliff:g></string>
     <string name="name">Name:</string>
     <string name="input_answer">Input Answer</string>
+    <string name="title">Title</string>
+    <string name="input_name">Input Name</string>
+    <string name="radio_buttons_for_question_3">Radio Buttons for Question 3</string>
 </resources>

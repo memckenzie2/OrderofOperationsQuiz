@@ -14,6 +14,7 @@
         <TextView
             android:id="@+id/title"
             style="@style/title"
+            android:contentDescription="@string/title"
             android:text="@string/order_of_operations_quiz" />
 
         <LinearLayout
@@ -33,7 +34,9 @@
 
         </LinearLayout>
 
-        <View style="@style/horizontal_line" />
+        <View
+            style="@style/horizontal_line"
+            android:contentDescription="@null" />
 
         <TextView
             android:id="@+id/question1"
@@ -43,24 +46,30 @@
         <CheckBox
             android:id="@+id/question_1_check1"
             style="@style/answer_view"
+            android:contentDescription="@string/question_1_check1"
             android:text="@string/question_1_check1" />
 
         <CheckBox
             android:id="@+id/question_1_check2"
             style="@style/answer_view"
+            android:contentDescription="@string/question_1_check2"
             android:text="@string/question_1_check2" />
 
         <CheckBox
             android:id="@+id/question_1_check3"
             style="@style/answer_view"
-            android:text="@string/question_1_Check3" />
+            android:contentDescription="@string/question_1_check3"
+            android:text="@string/question_1_check3" />
 
         <CheckBox
             android:id="@+id/question_1_check4"
             style="@style/answer_view"
+            android:contentDescription="@string/question_1_check4"
             android:text="@string/question_1_check4" />
 
-        <View style="@style/horizontal_line" />
+        <View
+            style="@style/horizontal_line"
+            android:contentDescription="@null" />
 
         <TextView
             android:id="@+id/question2"
@@ -81,7 +90,8 @@
 
         <RadioGroup
             android:id="@+id/question_3_radio_group"
-            style="@style/answer_view">
+            style="@style/answer_view"
+            android:contentDescription="@string/radio_buttons_for_question_3">
 
             <RadioButton
                 android:id="@+id/question_3_radio1"
@@ -104,7 +114,9 @@
                 android:text="@string/question_3_radio4" />
         </RadioGroup>
 
-        <View style="@style/horizontal_line" />
+        <View
+            style="@style/horizontal_line"
+            android:contentDescription="@null" />
 
         <TextView
             android:id="@+id/question4"
@@ -116,7 +128,9 @@
             style="@style/edit_text_view"
             android:inputType="number|numberSigned" />
 
-        <View style="@style/horizontal_line" />
+        <View
+            style="@style/horizontal_line"
+            android:contentDescription="@null" />
 
         <TextView
             android:id="@+id/question_5"
@@ -140,12 +154,14 @@
                 style="@style/button"
                 android:layout_weight="0"
                 android:onClick="onSubmit"
+                android:contentDescription="@string/submit"
                 android:text="@string/submit" />
 
             <Button
                 style="@style/button"
                 android:layout_weight="0"
                 android:onClick="reset"
+                android:contentDescription="@string/reset"
                 android:text="@string/reset" />
 
         </LinearLayout>
@@ -155,6 +171,7 @@
             style="@style/button"
             android:layout_gravity="center"
             android:onClick="emailResults"
+            android:contentDescription="@string/email_results"
             android:text="@string/email_results" />
 
     </LinearLayout>
