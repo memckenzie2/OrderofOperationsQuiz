@@ -7,8 +7,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusableInTouchMode="true"
         android:background="@color/background"
+        android:focusableInTouchMode="true"
         android:orientation="vertical">
 
         <TextView
@@ -153,15 +153,15 @@
             <Button
                 style="@style/button"
                 android:layout_weight="0"
-                android:onClick="onSubmit"
                 android:contentDescription="@string/submit"
+                android:onClick="onSubmit"
                 android:text="@string/submit" />
 
             <Button
                 style="@style/button"
                 android:layout_weight="0"
-                android:onClick="reset"
                 android:contentDescription="@string/reset"
+                android:onClick="reset"
                 android:text="@string/reset" />
 
         </LinearLayout>
@@ -170,8 +170,8 @@
             android:id="@+id/email"
             style="@style/button"
             android:layout_gravity="center"
-            android:onClick="emailResults"
             android:contentDescription="@string/email_results"
+            android:onClick="emailResults"
             android:text="@string/email_results" />
 
     </LinearLayout>

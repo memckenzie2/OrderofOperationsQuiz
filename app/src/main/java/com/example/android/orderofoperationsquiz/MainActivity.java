@@ -1,5 +1,6 @@
 package com.example.android.orderofoperationsquiz;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -165,11 +166,11 @@ public class MainActivity extends AppCompatActivity {
         check2Q1.setChecked(false);
         check3Q1.setChecked(false);
         check4Q1.setChecked(false);
-        editTextQ2.setText("");
+        editTextQ2.getText().clear();
         q3Group.clearCheck();
-        editTextQ4.setText("");
-        editTextQ5.setText("");
-        editTextName.setText("");
+        editTextQ4.getText().clear();
+        editTextQ5.getText().clear();
+        editTextName.getText().clear();
 
         //Reset all to default color
         q1.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -184,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
     /*
     This method is called when the e-mail results button is clicked.
      */
+    @SuppressLint("StringFormatInvalid")
     public void emailResults(View view) {
         //Retrieves student's name
         String name = editTextName.getText().toString();
