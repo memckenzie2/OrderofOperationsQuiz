@@ -30,7 +30,8 @@
 
             <EditText
                 android:id="@+id/name_edit"
-                style="@style/edit_text_view" />
+                style="@style/edit_text_view"
+                android:inputType="textPersonName|textCapWords" />
 
         </LinearLayout>
 

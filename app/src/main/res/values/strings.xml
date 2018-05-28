@@ -7,11 +7,11 @@
     <string name="question_1_check3">Addition and Subtraction are solved as they are encountered from left to right</string>
     <string name="question_1_check4">If there are multiple grouping symbols, solve the outermost first</string>
     <string name="question_2">Question 2</string>
-    <string name="question_3">3. Following order of operation rules, which step comes first: \n      48÷3 + 2[12×3 - |7 - 16|]</string>
+    <string name="question_3">3. Following order of operation rules, which step comes first: \n      48÷3 + 2[12×3 – |7 – 16|]</string>
     <string name="question_3_radio1">48 ÷ 3</string>
     <string name="question_3_radio2">3 + 2</string>
     <string name="question_3_radio3">12 × 3</string>
-    <string name="question_3_radio4">7 - 16</string>
+    <string name="question_3_radio4">7 – 16</string>
     <string name="question_4">Question 4</string>
     <string name="question_5">Question 5</string>
     <string name="submit">Grade Quiz</string>
